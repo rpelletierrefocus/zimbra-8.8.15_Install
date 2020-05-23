@@ -6,57 +6,6 @@ RANDOMVIRUS=$(date +%s|sha256sum|base64|head -c 10)
 HOSTNAME=$(hostname -s)
 
 #Install a DNS Server
-if [ "$4" == "bind" ]; then
-    sudo apt-get update && sudo apt-get install -y bind9 bind9utils bind9-doc
-    echo "Installing Bind DNS Server"
-    sed "s/-u/-4 -u/g" /etc/default/bind9 > /etc/default/bind9.new
-    mv /etc/default/bind9.new /etc/default/bind9
-    rm /etc/bind/named.conf.options
-cat <<EOF >>/etc/bind/named.conf.options
-options {
-directory "/var/cache/bind";
-
-listen-on { $2; }; # ns1 private IP address - listen on private network only
-allow-transfer { none; }; # disable zone transfers by default
-
-forwarders {
-8.8.8.8;
-8.8.4.4;
-};
-auth-nxdomain no; # conform to RFC1035
-#listen-on-v6 { any; };
-
-};
-EOF
-cat <<EOF >>/etc/bind/named.conf.local
-zone "$1" {
-        type master;
-        file "/etc/bind/db.$1";
-};
-EOF
-touch /etc/bind/db.$1
-cat <<EOF >/etc/bind/db.$1
-\$TTL  604800
-@      IN      SOA    ns1.$1. root.localhost. (
-                                2        ; Serial
-                        604800        ; Refresh
-                        86400        ; Retry
-                        2419200        ; Expire
-                        604800 )      ; Negative Cache TTL
-    ;
-    @     IN      NS      ns1.$1.
-    @     IN      A      $2
-    @     IN      MX     10     $HOSTNAME.$1.
-    $HOSTNAME     IN      A      $2
-    ns1     IN      A      $2
-    mail     IN      A      $2
-    pop3     IN      A      $2
-    imap     IN      A      $2
-    imap4     IN      A      $2
-    smtp     IN      A      $2
-EOF
-    sudo service bind9 restart
-fi
 if [ "$4" == "dnsmasq" ]; then
     echo "Installing dnsmasq DNS Server"
     sudo apt-get update && sudo sudo apt-get install -y dnsmasq
@@ -209,6 +158,23 @@ y
 y
 y
 EOF
+
+#Do you agree with the terms of the software license agreement? [N] Y
+#Use Zimbra's package repository [Y] Y
+#Install zimbra-ldap [Y]
+#Install zimbra-logger [Y]
+#Install zimbra-mta [Y] 
+#Install zimbra-dnscache [Y] 
+#Install zimbra-snmp [Y] 
+#Install zimbra-store [Y] 
+#Install zimbra-apache [Y] 
+#Install zimbra-spell [Y] 
+#Install zimbra-memcached [Y] 
+#Install zimbra-proxy [Y] 
+#Install zimbra-drive [Y] 
+#Install zimbra-imapd (BETA - for evaluation only) [N] 
+#Install zimbra-chat [Y] 
+
 if [[ `lsb_release -rs` == "18.04" ]]; then
     echo "Downloading Zimbra Collaboration 8.7.11 for Ubuntu 16.04"
     wget https://files.zimbra.com/downloads/8.7.11_GA/zcs-8.7.11_GA_1854.UBUNTU16_64.20170531151956.tgz
