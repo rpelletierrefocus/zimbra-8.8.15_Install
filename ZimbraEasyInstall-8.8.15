@@ -176,8 +176,10 @@ EOF
 #Install zimbra-chat [Y] 
 
 if [[ `lsb_release -rs` == "18.04" ]]; then
-    echo "Downloading Zimbra Collaboration 8.7.11 for Ubuntu 16.04"
-    wget https://files.zimbra.com/downloads/8.7.11_GA/zcs-8.7.11_GA_1854.UBUNTU16_64.20170531151956.tgz
+    echo "Downloading Zimbra Collaboration 8.8.15 for Ubuntu 18.04"
+    #wget https://files.zimbra.com/downloads/8.7.11_GA/zcs-8.7.11_GA_1854.UBUNTU16_64.20170531151956.tgz
+    #https://zimbra.org/download/zimbra-collaboration/8.8.15
+    wget https://files.zimbra.com/downloads/8.8.15_GA/zcs-8.8.15_GA_3869.UBUNTU18_64.20190918004220.tgz
     tar xzvf zcs-*
     echo "Installing Zimbra Collaboration just the Software"
     cd /tmp/zcs/zcs-* && ./install.sh -s < /tmp/zcs/installZimbra-keystrokes
