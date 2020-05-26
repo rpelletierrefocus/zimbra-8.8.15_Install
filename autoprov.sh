@@ -9,7 +9,7 @@ md ${DOMAIN} zimbraAutoProvAuthMech LDAP
 md ${DOMAIN} zimbraAutoProvBatchSize 40
 md ${DOMAIN} zimbraAutoProvLdapAdminBindDn ${BINDDN}
 md ${DOMAIN} zimbraAutoProvLdapAdminBindPassword ${BINDPW}
-md ${DOMAIN} zimbraAutoProvLdapBindDn "CN=AD Services,OU=Admin,OU=Domain Users,DC=flmaine,DC=com"
+md ${DOMAIN} zimbraAutoProvLdapBindDn ${BINDDN}
 md ${DOMAIN} zimbraAutoProvLdapSearchBase ${LDAPSEARCHBASE}
 md ${DOMAIN} zimbraAutoProvLdapSearchFilter "(cn=%u)"
 md ${DOMAIN} zimbraAutoProvLdapURL "ldap://${LDAPSERVER}:389"
