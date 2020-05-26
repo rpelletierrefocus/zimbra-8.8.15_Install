@@ -138,7 +138,7 @@ zimbraFeatureTasksEnabled="Enabled"
 zimbraIPMode="ipv4"
 zimbraMailProxy="FALSE"
 zimbraMtaMyNetworks="127.0.0.0/8 $2/32 [::1]/128 [fe80::]/64"
-zimbraPrefTimeZoneId="America/Los_Angeles"
+zimbraPrefTimeZoneId="America/New_York"
 zimbraReverseProxyLookupTarget="TRUE"
 zimbraVersionCheckInterval="1d"
 zimbraVersionCheckNotificationEmail="admin@$1"
@@ -159,6 +159,7 @@ y
 y
 y
 n
+y
 y
 y
 y
