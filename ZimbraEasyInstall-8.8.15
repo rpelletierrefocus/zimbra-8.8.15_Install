@@ -192,11 +192,16 @@ if [[ `lsb_release -rs` == "18.04" ]]; then
     wget https://files.zimbra.com/downloads/8.8.15_GA/zcs-8.8.15_GA_3869.UBUNTU18_64.20190918004220.tgz
     tar xzvf zcs-* 
     echo "Installing Zimbra Collaboration just the Software"    
-    cd zcs-8.8.15_GA_3869.UBUNTU18_64.20190918004220 && ./install.sh -s < /opt/zcs/installZimbra-keystrokes
-    echo "Installing Zimbra Collaboration injecting the configuration"
-    /opt/zimbra/libexec/zmsetup.pl -c /opt/zcs/installZimbraScript
+    #Using keystrokes simply does not work after many, many failed attempts
+    cd zcs-8.8.15_GA_3869.UBUNTU18_64.20190918004220 && ./install.sh 
+    #-s < /opt/zcs/installZimbra-keystrokes
+    exit
+fi
+
+exit
+## Run these scripts after after
+/opt/zimbra/libexec/zmsetup.pl -c /opt/zcs/installZimbraScript
     su - zimbra -c 'zmcontrol restart'
     echo "You can access now to your Zimbra Collaboration Server"
     echo "Admin Console: https://"$2":7071"
     echo "Web Client: https://"$2
-fi
