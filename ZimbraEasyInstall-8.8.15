@@ -35,7 +35,7 @@ mx-host=$1,$HOSTNAME.$1,0
 address=/$HOSTNAME.$1/$2
 EOF
 
-echo "$2  $HOSTNAME.$1" | sudo tee -a /etc/hosts
+echo "$2  $HOSTNAME.$1  $HOTSNAME" | sudo tee -a /etc/hosts
 
 
 sudo service dnsmasq restart
