@@ -192,7 +192,7 @@ if [[ `lsb_release -rs` == "18.04" ]]; then
     wget https://files.zimbra.com/downloads/8.8.15_GA/zcs-8.8.15_GA_3869.UBUNTU18_64.20190918004220.tgz
     tar xzvf zcs-* 
     echo "Installing Zimbra Collaboration just the Software"    
-    cd zcs-8.8* && ./install.sh -s < /opt/zcs/installZimbra-keystrokes
+    cd zcs-8.8.15_GA_3869.UBUNTU18_64.20190918004220 && ./install.sh -s < /opt/zcs/installZimbra-keystrokes
     echo "Installing Zimbra Collaboration injecting the configuration"
     /opt/zimbra/libexec/zmsetup.pl -c /opt/zcs/installZimbraScript
     su - zimbra -c 'zmcontrol restart'
