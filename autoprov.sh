@@ -1,3 +1,5 @@
+source .env
+
 cat <<EOF >/tmp/autoprov.txt
 md ${DOMAIN} zimbraAutoProvAccountNameMap "samAccountName"
 md ${DOMAIN} zimbraAutoProvAttrMap description=description
@@ -20,3 +22,5 @@ md ${DOMAIN} zimbraAutoProvNotificationSubject "New account auto provisioned"
 ms ${HOSTNAME}.${DOMAIN} zimbraAutoProvPollingInterval "1m"
 ms ${HOSTNAME}.${DOMAIN} +zimbraAutoProvScheduledDomains "${DOMAIN}"
 EOF
+
+zmprov < /tmp/autoprov.txt
