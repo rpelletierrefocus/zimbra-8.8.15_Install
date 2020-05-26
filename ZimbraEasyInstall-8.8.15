@@ -35,8 +35,8 @@ mx-host=$1,$HOSTNAME.$1,0
 address=/$HOSTNAME.$1/$2
 EOF
 
-echo "$2  $1" | sudo tee -a /etc/hosts
-hostnamectl set-hostname $2
+echo "$2  $HOSTNAME.$1" | sudo tee -a /etc/hosts
+
 
 sudo service dnsmasq restart
 
@@ -193,9 +193,9 @@ if [[ `lsb_release -rs` == "18.04" ]]; then
     wget https://files.zimbra.com/downloads/8.8.15_GA/zcs-8.8.15_GA_3869.UBUNTU18_64.20190918004220.tgz
     tar xzvf zcs-* 
     echo "Installing Zimbra Collaboration just the Software"    
-    cd zcs-8.8* && ./install.sh -s < /tmp/zcs/installZimbra-keystrokes
+    cd zcs-8.8* && ./install.sh -s < /opt/zcs/installZimbra-keystrokes
     echo "Installing Zimbra Collaboration injecting the configuration"
-    /opt/zimbra/libexec/zmsetup.pl -c /tmp/zcs/installZimbraScript
+    /opt/zimbra/libexec/zmsetup.pl -c /opt/zcs/installZimbraScript
     su - zimbra -c 'zmcontrol restart'
     echo "You can access now to your Zimbra Collaboration Server"
     echo "Admin Console: https://"$2":7071"
