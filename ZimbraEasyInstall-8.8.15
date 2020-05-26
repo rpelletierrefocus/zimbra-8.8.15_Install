@@ -1,4 +1,19 @@
 #!/bin/bash -x
+if [ -z "$1" ]
+then
+      echo "Please enter a hostname"
+fi
+
+if [ -z "$2" ]
+then
+      echo "Please enter an IP Address"
+fi
+
+if [ -z "$3" ]
+then
+      echo "Please enter a password"
+fi
+
 ## Preparing all the variables like IP, Hostname, etc, all of them from the container
 RANDOMHAM=$(date +%s|sha256sum|base64|head -c 10)
 RANDOMSPAM=$(date +%s|sha256sum|base64|head -c 10)
