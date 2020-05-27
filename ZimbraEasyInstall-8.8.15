@@ -167,33 +167,34 @@ y
 n
 y
 y
+y
 EOF
 
 #Do you agree with the terms of the software license agreement? [N] Y
 #Use Zimbra's package repository [Y] Y
 #Install zimbra-ldap [Y]
 #Install zimbra-logger [Y]
-#Install zimbra-mta [Y] 
-#Install zimbra-dnscache [Y] 
-#Install zimbra-snmp [Y] 
-#Install zimbra-store [Y] 
-#Install zimbra-apache [Y] 
-#Install zimbra-spell [Y] 
-#Install zimbra-memcached [Y] 
-#Install zimbra-proxy [Y] 
-#Install zimbra-drive [Y] 
-#Install zimbra-imapd (BETA - for evaluation only) [N] 
-#Install zimbra-chat [Y] 
+#Install zimbra-mta [Y]
+#Install zimbra-dnscache [Y]
+#Install zimbra-snmp [Y]
+#Install zimbra-store [Y]
+#Install zimbra-apache [Y]
+#Install zimbra-spell [Y]
+#Install zimbra-memcached [Y]
+#Install zimbra-proxy [Y]
+#Install zimbra-drive [Y]
+#Install zimbra-imapd (BETA - for evaluation only) [N]
+#Install zimbra-chat [Y]
 
 if [[ `lsb_release -rs` == "18.04" ]]; then
     echo "Downloading Zimbra Collaboration 8.8.15 for Ubuntu 18.04"
     #wget https://files.zimbra.com/downloads/8.7.11_GA/zcs-8.7.11_GA_1854.UBUNTU16_64.20170531151956.tgz
     #https://zimbra.org/download/zimbra-collaboration/8.8.15
     wget https://files.zimbra.com/downloads/8.8.15_GA/zcs-8.8.15_GA_3869.UBUNTU18_64.20190918004220.tgz
-    tar xzvf zcs-* 
-    echo "Installing Zimbra Collaboration just the Software"    
+    tar xzvf zcs-*
+    echo "Installing Zimbra Collaboration just the Software"
     #Using keystrokes simply does not work after many, many failed attempts
-    cd zcs-8.8.15_GA_3869.UBUNTU18_64.20190918004220 && ./install.sh 
+    cd zcs-8.8.15_GA_3869.UBUNTU18_64.20190918004220 && ./install.sh
     #-s < /opt/zcs/installZimbra-keystrokes
     exit
 fi
