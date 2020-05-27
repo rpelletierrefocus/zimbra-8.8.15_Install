@@ -24,3 +24,6 @@ ms ${HOSTNAME}.${DOMAIN} +zimbraAutoProvScheduledDomains "${DOMAIN}"
 EOF
 
 zmprov < /tmp/autoprov.txt
+
+
+#https://wiki.zimbra.com/wiki/How_to_configure_auto-provisioning_with_AD
