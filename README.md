@@ -5,11 +5,7 @@ In this Repository you will find different Zimbra Scripts for install Zimbra Col
 ##What is the ZimbraEasyInstall
 This Script install and configures bind9 with the domain and IP that is defined while invoke the command. After that the Scripts prepare the keystroke script with a default installation of Zimbra Collaboration 8.6 (without dnscache) and the config.defaults script, using the domain, IP and password that is defined while invoke the command. Once everything is ready the Script download the latest version of Zimbra Collaboration 8.6, uncompress it and install it using the keystrokes script and the config script.
 
-##Advantages of use the Script
- * Time saving
- * Fully automated
- * Easy to use
- * Good for a quick Zimbra Preview
+
 
 ##Usage and Example
 The ZimbraEasyInstall Script is an easy way to install Zimbra Collaboration, without be worry of the DNS configuration, OS depencies, etc. Just execute it and after a few minutes have Zimbra up and running.
